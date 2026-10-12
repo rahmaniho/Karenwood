@@ -57,7 +57,16 @@ jobs:
         run: npm ci
 
       - name: Build with Next.js (static export)
-        run: npm run build
+        run: npm run build 2>&1 | tee build.log; echo "EXIT_CODE=${PIPESTATUS[0]}" >> build.log
+        continue-on-error: true
+
+      - name: Upload build log for debugging
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build.log
+          if-no-files-found: ignore
 
       - name: Ensure .nojekyll exists in export
         run: touch out/.nojekyll
