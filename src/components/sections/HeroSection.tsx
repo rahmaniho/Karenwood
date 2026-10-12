@@ -28,7 +28,7 @@ export function HeroSection() {
         aria-hidden="true"
       >
         <img
-          src={withBasePath('/images/hero-bg.svg')}
+          src={withBasePath('/images/hero-bg.jpg')}
           alt=""
           className="h-[115%] w-full object-cover opacity-85"
         />
@@ -136,7 +136,7 @@ export function HeroSection() {
             <div className="relative rounded-3xl border border-bronze/35 bg-ink/65 p-5 shadow-luxury-lg backdrop-blur-xl sm:p-6">
               <div className="overflow-hidden rounded-2xl border border-bronze/25">
                 <img
-                  src={withBasePath('/images/subsidiaries/kitchen.svg')}
+                  src={withBasePath('/images/subsidiaries/kitchen.jpg')}
                   alt={
                     locale === 'fa'
                       ? 'نمایش آتلیه معماری چوب کارن‌وود'

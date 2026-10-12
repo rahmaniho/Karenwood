@@ -57,7 +57,7 @@ export function StatsSection() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-20"
         style={{
-          backgroundImage: `url(${withBasePath('/images/patterns/tree-rings.svg')})`,
+          backgroundImage: `url(${withBasePath('/images/patterns/tree-rings.jpg')})`,
           backgroundSize: '320px 320px',
         }}
       />

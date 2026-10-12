@@ -49,7 +49,7 @@ export function SubsidiaryPageTemplate({ subsidiary }: { subsidiary: Subsidiary 
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `url(${withBasePath('/images/patterns/wood-grain.svg')})`,
+            backgroundImage: `url(${withBasePath('/images/patterns/wood-grain.jpg')})`,
             backgroundSize: '360px 360px',
           }}
         />
