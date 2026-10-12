@@ -24,8 +24,12 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    # NOTE: NODE_ENV is NOT set at the job level on purpose. With NODE_ENV=production,
+    # `npm ci` skips devDependencies, and tailwindcss / postcss / autoprefixer are
+    # declared as devDependencies in package.json. Without them, the production build
+    # fails with "Cannot find module 'tailwindcss'". We set NODE_ENV=production only
+    # for the build step itself.
     env:
-      NODE_ENV: production
       GITHUB_REPOSITORY: ${{ github.repository }}
     steps:
       - name: Checkout
@@ -54,39 +58,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
 
-      - name: Install dependencies
+      - name: Install dependencies (devDeps included for tailwindcss / postcss)
         run: npm ci
 
       - name: Build with Next.js (static export)
-        # Use -euxo pipefail so any failing command aborts the whole step,
-        # and capture the log to a file via redirection (NOT a pipe, so the
-        # step's own exit code reflects next's real exit status).
-        run: |
-          {
-            echo "=== env ==="
-            echo "PWD=$(pwd)"
-            echo "NODE_VERSION=$(node --version)"
-            echo "NPM_VERSION=$(npm --version)"
-            echo "=== ls -la src/hooks src/lib src/components/sections ==="
-            ls -la src/hooks src/lib src/components/sections 2>&1
-            echo "=== cat tsconfig.json paths ==="
-            node -e "console.log(JSON.stringify(require('./tsconfig.json').compilerOptions.paths))"
-            echo "=== running build ==="
-            npx next build --debug 2>&1 || true
-            echo "--- out/ directory contents (if any) ---"
-            ls -la out 2>&1 || true
-            echo "--- END ---"
-          } > build.log 2>&1
-        # Don't fail the step here; let the debug step below emit a clean error so
-        # the log is uploaded to artifacts.
-
-      - name: Verify out/ was produced
-        run: |
-          if [ ! -d out ]; then
-            echo "::error::Static export directory 'out/' was NOT created by 'npm run build'. See build.log artifact for the full Next.js output."
-            cat build.log
-            exit 1
-          fi
+        env:
+          NODE_ENV: production
+        run: npm run build
+        # No `continue-on-error` and no pipe-masking: if the build fails, this
+        # step fails and the workflow stops here. The next step only runs on
+        # success and would have failed anyway with a confusing "no out/ dir"
+        # error.
 
       - name: Ensure .nojekyll exists in export
         run: touch out/.nojekyll
@@ -95,65 +77,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
-
-      - name: Upload build log for debugging
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-log
-          path: build.log
-          if-no-files-found: ignore
-
-      - name: Post build log to CI failure issue (debug aid)
-        if: failure()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            let body = '**Build failed in run ${{ github.run_id }} (${{ github.run_attempt }})**\n\n';
-            body += 'Workflow: `${{ github.workflow }}` @ `${{ github.ref_name }}` (${{ github.sha }})\n\n';
-            try {
-              const log = fs.readFileSync('build.log', 'utf8');
-              // Truncate very long logs so the issue body stays within GitHub's
-              // ~65,536-char limit.
-              const MAX = 60000;
-              if (log.length > MAX) {
-                body += '```\n' + log.slice(0, MAX) + '\n... [truncated, full log is build.log in the artifacts]\n```';
-              } else {
-                body += '```\n' + log + '\n```';
-              }
-            } catch (e) {
-              body += '_(no build.log captured: ' + e.message + ')_\n';
-            }
-            body += '\n\nView run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}';
-
-            // Find or create the "CI build log" issue we use as a debug sink.
-            const ISSUE_TITLE = 'CI build log (auto-updated debug issue)';
-            const issues = await github.paginate(github.rest.issues.listForRepo, {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open',
-              per_page: 100,
-            });
-            const existing = issues.find(i => i.title === ISSUE_TITLE);
-            if (existing) {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: existing.number,
-                body,
-              });
-              core.info('Posted build log to existing issue #' + existing.number);
-            } else {
-              const created = await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title: ISSUE_TITLE,
-                body,
-                labels: ['ci-debug'],
-              });
-              core.info('Created issue #' + created.data.number + ' with build log');
-            }
 
   # Deployment job
   deploy:

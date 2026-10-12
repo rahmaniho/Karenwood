@@ -1,22 +1,12 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
 const repo = process.env.GITHUB_REPOSITORY
   ? process.env.GITHUB_REPOSITORY.split('/')[1]
   : process.env.REPO_NAME || 'karenwood';
 
 const isProd = process.env.NODE_ENV === 'production';
 const basePath = isProd ? `/${repo}` : '';
-
-// Debug marker so we can tell from CI logs whether this file is even being
-// read. Next.js prints stderr from next.config.js during load.
-process.stderr.write(
-  `[next.config.js] loaded. NODE_ENV=${process.env.NODE_ENV || 'unset'} ` +
-  `GITHUB_REPOSITORY=${process.env.GITHUB_REPOSITORY || 'unset'} ` +
-  `repo=${repo} basePath=${basePath}\n`,
-);
-const tsconfigPaths = require('fs').existsSync('tsconfig.json')
-  ? require('./tsconfig.json').compilerOptions?.paths
-  : null;
-process.stderr.write(`[next.config.js] tsconfig paths=${JSON.stringify(tsconfigPaths)}\n`);
 
 const nextConfig = {
   output: 'export',
@@ -35,29 +25,16 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
-  // Diagnostic: log webpack resolve state, AND defensively add an explicit
-  // @ -> src/ alias to the resolver so that, if the tsconfig.json paths
-  // plugin is somehow not picking up the @ mapping, the build still works.
-  // This is a no-op when the plugin works (the alias is shadowed by the
-  // more-specific plugin) but a safety net when it doesn't.
-  webpack: (config, { webpack }) => {
-    const origResolve = config.resolve || {};
-    const origPlugin = origResolve.plugins || [];
-    process.stderr.write(
-      `[next.config.js] webpack resolve.plugins count=${origPlugin.length} ` +
-      `before-alias=${JSON.stringify(origResolve.alias || {})}\n`,
-    );
-    config.resolve = {
-      ...origResolve,
-      alias: {
-        ...(origResolve.alias || {}),
-        '@': require('path').resolve(__dirname, 'src'),
-      },
+  // Defensive explicit '@' -> src/ alias for webpack's resolver. Next.js
+  // also configures this via the tsconfig.json paths plugin; the explicit
+  // alias is a no-op when the plugin works, and a safety net if for any
+  // reason the plugin doesn't match a particular @/... import.
+  webpack: (config) => {
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      '@': path.resolve(__dirname, 'src'),
     };
-    process.stderr.write(
-      `[next.config.js] webpack resolve.plugins count=${origPlugin.length} ` +
-      `after-alias=${JSON.stringify(config.resolve.alias)}\n`,
-    );
     return config;
   },
 };
