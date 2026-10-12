@@ -1,0 +1,135 @@
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
+  darkMode: ['class'],
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    container: {
+      center: true,
+      padding: '1.5rem',
+      screens: {
+        '2xl': '1440px',
+      },
+    },
+    extend: {
+      colors: {
+        walnut: {
+          DEFAULT: '#3B2A1E',
+          50: '#F6F2EE',
+          100: '#EAE0D7',
+          200: '#D4BFAE',
+          300: '#B8977E',
+          400: '#9A7155',
+          500: '#7C563C',
+          600: '#5C3F2C',
+          700: '#3B2A1E',
+          800: '#2A1E15',
+          900: '#1B130E',
+          950: '#120C09',
+        },
+        bronze: {
+          DEFAULT: '#C8A165',
+          50: '#FBF8F1',
+          100: '#F5EDDC',
+          200: '#EBD9B8',
+          300: '#DEC18E',
+          400: '#C8A165',
+          500: '#B58947',
+          600: '#976E36',
+          700: '#78552B',
+          800: '#624526',
+          900: '#513A22',
+          950: '#2E1F10',
+        },
+        cream: {
+          DEFAULT: '#F5F1EA',
+          50: '#FDFCFA',
+          100: '#F9F6F1',
+          200: '#F5F1EA',
+          300: '#EBE3D5',
+          400: '#DDD0BC',
+          500: '#C9B79C',
+          600: '#B09A7B',
+          700: '#8F7B5E',
+          800: '#6E5E48',
+          900: '#4F4334',
+        },
+        ink: {
+          DEFAULT: '#1A1A1A',
+          50: '#F5F5F4',
+          100: '#E7E5E4',
+          200: '#D6D3D1',
+          300: '#A8A29E',
+          400: '#78716C',
+          500: '#57534E',
+          600: '#44403C',
+          700: '#292524',
+          800: '#1F1C1A',
+          900: '#1A1A1A',
+          950: '#0D0B0A',
+        },
+        moss: {
+          DEFAULT: '#7A8B6F',
+          50: '#F4F6F3',
+          100: '#E5EAE2',
+          200: '#CCD6C7',
+          300: '#ABBBA3',
+          400: '#7A8B6F',
+          500: '#5F7055',
+          600: '#4A5842',
+          700: '#3C4736',
+          800: '#323A2D',
+          900: '#2A3127',
+          950: '#151913',
+        },
+      },
+      fontFamily: {
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        faHeading: ['"Estedad"', '"Vazirmatn"', 'system-ui', 'sans-serif'],
+        faBody: ['"Vazirmatn"', 'system-ui', 'sans-serif'],
+      },
+      backgroundImage: {
+        'wood-gradient': 'linear-gradient(135deg, #3B2A1E 0%, #2A1E15 50%, #1B130E 100%)',
+        'bronze-sheen': 'linear-gradient(135deg, #DEC18E 0%, #C8A165 50%, #976E36 100%)',
+        'cream-radial': 'radial-gradient(circle at 50% 0%, #FDFCFA 0%, #F5F1EA 100%)',
+      },
+      boxShadow: {
+        luxury: '0 20px 50px -12px rgba(59, 42, 30, 0.14)',
+        'luxury-lg': '0 30px 70px -15px rgba(59, 42, 30, 0.24)',
+        'bronze-glow': '0 0 30px -5px rgba(200, 161, 101, 0.35)',
+      },
+      keyframes: {
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+        'spin-slow': {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(360deg)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-8px)' },
+        },
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.25s ease-out',
+        'accordion-up': 'accordion-up 0.25s ease-out',
+        'spin-slow': 'spin-slow 24s linear infinite',
+        float: 'float 6s ease-in-out infinite',
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;

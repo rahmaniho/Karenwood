@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --walnut: #3B2A1E;
+    --bronze: #C8A165;
+    --cream: #F5F1EA;
+    --ink: #1A1A1A;
+    --moss: #7A8B6F;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #F5F1EA;
+    color: #1A1A1A;
+  }
+
+  html.dark {
+    background-color: #120C09;
+    color: #F5F1EA;
+  }
+
+  html[dir="rtl"] body {
+    font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+  }
+
+  html[dir="rtl"] h1,
+  html[dir="rtl"] h2,
+  html[dir="rtl"] h3,
+  html[dir="rtl"] h4,
+  html[dir="rtl"] h5,
+  html[dir="rtl"] h6 {
+    font-family: 'Estedad', 'Vazirmatn', system-ui, sans-serif;
+    letter-spacing: 0;
+  }
+
+  html[dir="ltr"] body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html[dir="ltr"] h1,
+  html[dir="ltr"] h2,
+  html[dir="ltr"] h3,
+  html[dir="ltr"] h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F1EA;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #1B130E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C8A165;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3B2A1E;
+}

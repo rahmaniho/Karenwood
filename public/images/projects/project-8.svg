@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none" role="img" aria-label="Jordan Flagship Executive Boardroom Suite">
+  <defs>
+    <linearGradient id="pg-8" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1A1A1A"/>
+      <stop offset="100%" stop-color="#1A1A1A"/>
+    </linearGradient>
+    <radialGradient id="pr-8" cx="0.65" cy="0.35" r="0.6">
+      <stop offset="0%" stop-color="#3B2A1E" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#1A1A1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#pg-8)"/>
+  <rect width="800" height="600" fill="url(#pr-8)"/>
+  <!-- Architectural Frame -->
+  <rect x="32" y="32" width="736" height="536" rx="12" stroke="#3B2A1E" stroke-opacity="0.35" stroke-width="1.5"/>
+  <!-- Wood Grain Topographic Lines -->
+  <g stroke="#3B2A1E" stroke-opacity="0.22" stroke-width="1.2">
+    <path d="M32 194 Q260 160 480 198 T768 176"/>
+    <path d="M32 288 Q290 254 510 300 T768 270"/>
+    <path d="M32 410 Q270 376 520 422 T768 398"/>
+    <path d="M32 494 Q310 470 540 509 T768 492"/>
+  </g>
+  <!-- Central Architectural Composition -->
+  <g transform="translate(400, 290)">
+    <circle cx="0" cy="0" r="158" stroke="#3B2A1E" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="10 6"/>
+    <circle cx="0" cy="0" r="110" fill="#3B2A1E" fill-opacity="0.7" stroke="#3B2A1E" stroke-width="2"/>
+    <rect x="-95" y="-101" width="190" height="202" rx="8" transform="rotate(232)" fill="#1A1A1A" fill-opacity="0.65" stroke="#C8A165" stroke-width="2"/>
+    <!-- Slatted Timber Joinery Detail -->
+    <g stroke="#C8A165" stroke-width="2.2" stroke-opacity="0.8">
+      <line x1="-90" y1="-45" x2="90" y2="-45"/>
+      <line x1="-110" y1="-15" x2="110" y2="-15"/>
+      <line x1="-110" y1="15" x2="110" y2="15"/>
+      <line x1="-90" y1="45" x2="90" y2="45"/>
+    </g>
+    <circle cx="0" cy="0" r="26" fill="#3B2A1E"/>
+    <circle cx="0" cy="0" r="10" fill="#F5F1EA"/>
+  </g>
+  <!-- Edition Number Plate -->
+  <rect x="64" y="488" width="96" height="40" rx="6" fill="#3B2A1E" stroke="#C8A165" stroke-width="1.2"/>
+  <text x="112" y="514" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="16" font-weight="700" fill="#F5F1EA">KW—08</text>
+</svg>

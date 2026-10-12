@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" fill="none" role="img" aria-label="Architectural Wooden Doors — درب‌های چوبی تمام‌چوب کارن‌وود">
+  <rect width="640" height="440" rx="20" fill="#F5F1EA"/>
+  <rect x="20" y="20" width="600" height="400" rx="14" fill="#3B2A1E"/>
+  <!-- Grand Pivot Door Frame -->
+  <rect x="195" y="42" width="250" height="356" rx="6" fill="#1A1A1A" stroke="#C8A165" stroke-width="2.5"/>
+  <!-- Pivoting Solid Walnut Slab with Chevron Grain -->
+  <polygon points="225,52 415,38 415,402 225,388" fill="#3B2A1E" stroke="#C8A165" stroke-width="2"/>
+  <g stroke="#C8A165" stroke-width="1.3" stroke-opacity="0.55">
+    <path d="M240 100 L320 75 L400 100"/>
+    <path d="M240 150 L320 125 L400 150"/>
+    <path d="M240 200 L320 175 L400 200"/>
+    <path d="M240 250 L320 225 L400 250"/>
+    <path d="M240 300 L320 275 L400 300"/>
+    <path d="M240 350 L320 325 L400 350"/>
+  </g>
+  <!-- Full-Height Bronze Architectural Pull Handle -->
+  <rect x="378" y="105" width="10" height="230" rx="5" fill="#C8A165"/>
+  <!-- Top & Bottom Pivot Hardware -->
+  <rect x="250" y="42" width="24" height="8" fill="#C8A165"/>
+  <rect x="250" y="392" width="24" height="8" fill="#C8A165"/>
+  <!-- Side Architectural Sidelights -->
+  <rect x="125" y="52" width="52" height="336" rx="4" stroke="#7A8B6F" stroke-width="1.5" fill="#1A1A1A" fill-opacity="0.5"/>
+  <rect x="463" y="52" width="52" height="336" rx="4" stroke="#7A8B6F" stroke-width="1.5" fill="#1A1A1A" fill-opacity="0.5"/>
+</svg>

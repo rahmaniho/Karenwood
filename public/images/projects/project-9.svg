@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none" role="img" aria-label="Shemiranat Biophilic Thermowood Pavilion">
+  <defs>
+    <linearGradient id="pg-9" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B2A1E"/>
+      <stop offset="100%" stop-color="#1A1A1A"/>
+    </linearGradient>
+    <radialGradient id="pr-9" cx="0.65" cy="0.35" r="0.6">
+      <stop offset="0%" stop-color="#7A8B6F" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#3B2A1E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#pg-9)"/>
+  <rect width="800" height="600" fill="url(#pr-9)"/>
+  <!-- Architectural Frame -->
+  <rect x="32" y="32" width="736" height="536" rx="12" stroke="#7A8B6F" stroke-opacity="0.35" stroke-width="1.5"/>
+  <!-- Wood Grain Topographic Lines -->
+  <g stroke="#7A8B6F" stroke-opacity="0.22" stroke-width="1.2">
+    <path d="M32 202 Q260 170 480 204 T768 183"/>
+    <path d="M32 294 Q290 262 510 305 T768 275"/>
+    <path d="M32 415 Q270 383 520 426 T768 404"/>
+    <path d="M32 497 Q310 475 540 512 T768 496"/>
+  </g>
+  <!-- Central Architectural Composition -->
+  <g transform="translate(400, 290)">
+    <circle cx="0" cy="0" r="180" stroke="#7A8B6F" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="10 6"/>
+    <circle cx="0" cy="0" r="132" fill="#3B2A1E" fill-opacity="0.7" stroke="#7A8B6F" stroke-width="2"/>
+    <rect x="-117" y="-65" width="234" height="130" rx="8" transform="rotate(261)" fill="#1A1A1A" fill-opacity="0.65" stroke="#C8A165" stroke-width="2"/>
+    <!-- Slatted Timber Joinery Detail -->
+    <g stroke="#C8A165" stroke-width="2.2" stroke-opacity="0.8">
+      <line x1="-90" y1="-45" x2="90" y2="-45"/>
+      <line x1="-110" y1="-15" x2="110" y2="-15"/>
+      <line x1="-110" y1="15" x2="110" y2="15"/>
+      <line x1="-90" y1="45" x2="90" y2="45"/>
+    </g>
+    <circle cx="0" cy="0" r="26" fill="#7A8B6F"/>
+    <circle cx="0" cy="0" r="10" fill="#F5F1EA"/>
+  </g>
+  <!-- Edition Number Plate -->
+  <rect x="64" y="488" width="96" height="40" rx="6" fill="#3B2A1E" stroke="#C8A165" stroke-width="1.2"/>
+  <text x="112" y="514" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="16" font-weight="700" fill="#F5F1EA">KW—09</text>
+</svg>
