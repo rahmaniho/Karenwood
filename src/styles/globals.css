@@ -71,40 +71,34 @@ html.dark ::-webkit-scrollbar-track {
 }
 
 /* ------------------------------------------------------------------
-   KarenSoft credit (footer) — animated logo ring, gradient text, shine
+   KarenSoft credit (footer) — rotating gradient border, floating mark,
+   periodic light sweep
    ------------------------------------------------------------------ */
 .ks-ring {
-  background: conic-gradient(from 0deg, #0ea5e9, #22d3ee, #1d4ed8, #0b1f6b, #0ea5e9);
-  animation: ks-spin 4s linear infinite;
+  background: conic-gradient(from 0deg, #0b1f6b, #1d4ed8, #22d3ee, #0ea5e9, #1d4ed8, #0b1f6b);
+  animation: ks-spin 5s linear infinite;
 }
 
 .ks-credit:hover .ks-ring {
-  animation-duration: 1.4s;
+  animation-duration: 1.6s;
 }
 
 .ks-float {
   animation: ks-float 3.2s ease-in-out infinite;
 }
 
-.ks-gradient-text {
-  background-image: linear-gradient(90deg, #38bdf8 0%, #22d3ee 25%, #3b82f6 50%, #22d3ee 75%, #38bdf8 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: ks-flow 4s linear infinite;
+.ks-shine {
+  transform: translateX(-120%) skewX(-20deg);
+  animation: ks-shine 5s ease-in-out 1.6s infinite;
 }
 
 .ks-credit:hover .ks-shine {
-  animation: ks-shine 1.1s ease-out;
-}
-
-[dir='rtl'] .ks-credit:hover .ks-shine {
-  animation-name: ks-shine-rtl;
+  animation: ks-shine-once 0.9s ease-out;
 }
 
 @keyframes ks-spin {
-  to { transform: rotate(360deg); }
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 @keyframes ks-float {
@@ -112,24 +106,20 @@ html.dark ::-webkit-scrollbar-track {
   50% { transform: translateY(-2px); }
 }
 
-@keyframes ks-flow {
-  to { background-position: 200% center; }
-}
-
 @keyframes ks-shine {
-  from { transform: translateX(0) skewX(-20deg); }
-  to { transform: translateX(450%) skewX(-20deg); }
+  0% { transform: translateX(-120%) skewX(-20deg); }
+  25%, 100% { transform: translateX(420%) skewX(-20deg); }
 }
 
-@keyframes ks-shine-rtl {
-  from { transform: translateX(0) skewX(-20deg); }
-  to { transform: translateX(-450%) skewX(-20deg); }
+@keyframes ks-shine-once {
+  from { transform: translateX(-120%) skewX(-20deg); }
+  to { transform: translateX(420%) skewX(-20deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .ks-ring,
   .ks-float,
-  .ks-gradient-text,
+  .ks-shine,
   .ks-credit:hover .ks-shine {
     animation: none !important;
   }

@@ -6,51 +6,71 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { withBasePath } from '@/lib/utils';
 
 const KARENSOFT_URL = 'https://www.karen-soft.ir';
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 /**
- * Animated "Designed & Developed by KarenSoft" credit.
+ * Animated "Designed & Developed by KarenSoft | کارن سافت" credit.
  *
- * - Logo: rotating conic-gradient ring, gentle float, and pixel particles
- *   that drift in (echoing the pixel trail in the KarenSoft mark).
- * - Text: staggered reveal when scrolled into view + a continuously
- *   flowing blue/cyan gradient across the brand name.
+ * Uses the original KarenSoft logo artwork (KS mark + "کارن سافت" + "Karensoft"
+ * wordmarks, cut from rahmaniho/karen-soft/public/images/logo.png) on a white
+ * card so the brand colours render exactly as designed.
  *
- * Persian text is revealed word-by-word (never letter-by-letter) so that
- * Arabic-script letter joining is preserved.
+ * Animation:
+ *  - rotating blue/cyan gradient border around the card
+ *  - KS mark spins in, floats, and emits pixel particles (echoing the logo)
+ *  - "کارن سافت" is revealed right→left, "Karensoft" left→right
+ *  - a light sweep passes over the card periodically and on hover
+ *  - all motion is disabled for users with prefers-reduced-motion
  */
 export function KarenSoftCredit() {
-  const { t, isRTL } = useTranslation();
+  const { t } = useTranslation();
   const reduceMotion = useReducedMotion();
 
   const container: Variants = {
     hidden: {},
-    visible: {
-      transition: { staggerChildren: reduceMotion ? 0 : 0.06, delayChildren: 0.25 },
-    },
+    visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.18, delayChildren: 0.15 } },
   };
 
-  const piece: Variants = reduceMotion
-    ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }
+  const fadeUp: Variants = reduceMotion
+    ? {}
     : {
-        hidden: { opacity: 0, y: 14, filter: 'blur(6px)' },
-        visible: {
-          opacity: 1,
-          y: 0,
-          filter: 'blur(0px)',
-          transition: { type: 'spring', stiffness: 260, damping: 20 },
-        },
+        hidden: { opacity: 0, y: 10 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
       };
 
-  // Primary brand name follows the active locale; the other spelling is shown as a subtitle.
-  const primaryName = isRTL ? 'کارن سافت' : 'KarenSoft';
-  const secondaryName = isRTL ? 'KarenSoft' : 'کارن سافت';
-  const primaryPieces = isRTL ? primaryName.split(' ') : primaryName.split('');
+  const markIn: Variants = reduceMotion
+    ? {}
+    : {
+        hidden: { opacity: 0, scale: 0.3, rotate: -180 },
+        visible: {
+          opacity: 1,
+          scale: 1,
+          rotate: 0,
+          transition: { type: 'spring', stiffness: 180, damping: 13 },
+        },
+        hover: { scale: 1.1, rotate: -6, transition: { type: 'spring', stiffness: 300, damping: 12 } },
+      };
+
+  const revealFrom = (side: 'left' | 'right'): Variants =>
+    reduceMotion
+      ? {}
+      : {
+          hidden: {
+            opacity: 0,
+            clipPath: side === 'right' ? 'inset(0 0 0 100%)' : 'inset(0 100% 0 0)',
+          },
+          visible: {
+            opacity: 1,
+            clipPath: 'inset(0 0% 0 0%)',
+            transition: { duration: 0.9, ease: EASE },
+          },
+        };
 
   const pixels = [
-    { x: -14, y: 10, s: 5, d: 0 },
-    { x: -9, y: 18, s: 4, d: 0.4 },
-    { x: -18, y: 22, s: 3, d: 0.8 },
-    { x: -6, y: 26, s: 3, d: 1.2 },
+    { x: -20, y: 6, s: 4, d: 0 },
+    { x: -15, y: 12, s: 3, d: 0.5 },
+    { x: -24, y: 14, s: 3, d: 1 },
+    { x: -12, y: 18, s: 2.5, d: 1.5 },
   ];
 
   return (
@@ -58,110 +78,88 @@ export function KarenSoftCredit() {
       href={KARENSOFT_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${t.footer.designedBy} ${primaryName} (${secondaryName}) — www.karen-soft.ir`}
-      title="www.karen-soft.ir"
+      aria-label={`${t.footer.designedBy} کارن سافت | KarenSoft — www.karen-soft.ir`}
+      title="کارن سافت | KarenSoft — www.karen-soft.ir"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.6 }}
-      variants={container}
       whileHover={reduceMotion ? undefined : 'hover'}
-      className="ks-credit group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-cream/10 bg-ink/30 py-1.5 ps-1.5 pe-4 backdrop-blur-sm transition-colors duration-500 hover:border-sky-400/40 hover:bg-ink/50"
+      viewport={{ once: true, amount: 0.5 }}
+      variants={container}
+      className="ks-credit group inline-flex flex-col items-center gap-2 sm:flex-row sm:gap-3"
     >
-      {/* Hover shine sweep */}
-      <span
-        aria-hidden="true"
-        className="ks-shine pointer-events-none absolute inset-y-0 -start-1/2 w-1/3 skew-x-[-20deg] bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 group-hover:opacity-100"
-      />
-
-      {/* Logo badge */}
       <motion.span
-        variants={
-          reduceMotion
-            ? undefined
-            : {
-                hidden: { scale: 0.4, rotate: -90, opacity: 0 },
-                visible: {
-                  scale: 1,
-                  rotate: 0,
-                  opacity: 1,
-                  transition: { type: 'spring', stiffness: 200, damping: 14 },
-                },
-                hover: { scale: 1.08, rotate: isRTL ? 8 : -8 },
-              }
-        }
-        className="relative flex h-10 w-10 shrink-0 items-center justify-center"
+        variants={fadeUp}
+        className="text-[11px] font-medium tracking-wide text-cream/60 transition-colors duration-300 group-hover:text-cream/90"
       >
-        {/* Rotating gradient ring */}
-        <span
-          aria-hidden="true"
-          className="ks-ring absolute inset-0 rounded-full"
-        />
-        <span aria-hidden="true" className="absolute inset-[2px] rounded-full bg-white shadow-[0_0_18px_-2px_rgba(14,165,233,0.65)]" />
-
-        {/* Pixel particles drifting into the mark */}
-        {!reduceMotion &&
-          pixels.map((p, i) => (
-            <motion.span
-              key={i}
-              aria-hidden="true"
-              className="absolute rounded-[1px] bg-sky-400"
-              style={{ width: p.s, height: p.s, left: '50%', top: '50%' }}
-              initial={{ x: p.x - 10, y: p.y - 14, opacity: 0 }}
-              animate={{
-                x: [p.x - 10, p.x - 2, p.x - 10],
-                y: [p.y - 14, p.y - 16, p.y - 14],
-                opacity: [0, 0.9, 0],
-              }}
-              transition={{ duration: 2.8, repeat: Infinity, delay: p.d, ease: 'easeInOut' }}
-            />
-          ))}
-
-        <img
-          src={withBasePath('/images/karensoft/mark.png')}
-          alt="KarenSoft"
-          width={26}
-          height={26}
-          loading="lazy"
-          className={`relative h-[26px] w-[26px] object-contain ${reduceMotion ? '' : 'ks-float'}`}
-        />
+        {t.footer.designedBy}
       </motion.span>
 
-      {/* Text block */}
-      <span className="relative flex flex-col leading-tight">
-        <motion.span
-          variants={piece}
-          className="text-[10px] font-medium uppercase tracking-wider text-cream/60"
+      {/* Card with rotating gradient border */}
+      <motion.span
+        variants={fadeUp}
+        className="relative inline-flex overflow-hidden rounded-2xl p-[1.5px] shadow-[0_0_0_0_rgba(14,165,233,0)] transition-shadow duration-500 group-hover:shadow-[0_0_28px_-4px_rgba(34,211,238,0.55)]"
+      >
+        <span aria-hidden="true" className="ks-ring pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[260%] -translate-x-1/2 -translate-y-1/2" />
+
+        <span
+          dir="ltr"
+          className="relative flex items-center gap-2.5 overflow-hidden rounded-[14px] bg-white px-3 py-1.5"
         >
-          {t.footer.designedBy}
-        </motion.span>
-
-        <span className="flex items-baseline gap-2">
+          {/* Light sweep */}
           <span
-            className={`inline-flex text-sm font-extrabold ${
-              isRTL ? 'gap-1 font-faHeading' : 'tracking-wide'
-            }`}
-            dir={isRTL ? 'rtl' : 'ltr'}
-          >
-            {primaryPieces.map((chunk, i) => (
-              // Gradient is applied per piece: background-clip:text on a parent does not
-              // paint through children that are transformed/filtered by the animation.
-              <motion.span key={`${chunk}-${i}`} variants={piece} className="ks-gradient-text inline-block">
-                {chunk}
-              </motion.span>
-            ))}
-          </span>
+            aria-hidden="true"
+            className="ks-shine pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-sky-200/70 to-transparent"
+          />
 
-          <motion.span
-            variants={piece}
-            className={`text-[10px] text-cream/45 transition-colors duration-300 group-hover:text-sky-300 ${
-              isRTL ? 'font-sans' : 'font-faBody'
-            }`}
-            dir={isRTL ? 'ltr' : 'rtl'}
-          >
-            {secondaryName}
+          {/* KS mark */}
+          <motion.span variants={markIn} className="relative block h-9 w-9 shrink-0">
+            {!reduceMotion &&
+              pixels.map((p, i) => (
+                <motion.span
+                  key={i}
+                  aria-hidden="true"
+                  className="absolute rounded-[1px] bg-blue-600"
+                  style={{ width: p.s, height: p.s, left: '50%', top: '50%' }}
+                  initial={{ x: p.x, y: p.y, opacity: 0 }}
+                  animate={{ x: [p.x, p.x - 7, p.x], y: [p.y, p.y + 2, p.y], opacity: [0, 0.85, 0] }}
+                  transition={{ duration: 2.6, repeat: Infinity, delay: p.d, ease: 'easeInOut' }}
+                />
+              ))}
+            <img
+              src={withBasePath('/images/karensoft/mark.png')}
+              alt=""
+              width={256}
+              height={256}
+              loading="lazy"
+              className={`relative h-full w-full object-contain ${reduceMotion ? '' : 'ks-float'}`}
+            />
           </motion.span>
+
+          <span aria-hidden="true" className="h-8 w-px bg-gradient-to-b from-transparent via-sky-300 to-transparent" />
+
+          {/* Wordmarks from the original logo */}
+          <span className="flex flex-col items-center gap-[3px]">
+            <motion.img
+              variants={revealFrom('right')}
+              src={withBasePath('/images/karensoft/wordmark-fa.png')}
+              alt="کارن سافت"
+              width={383}
+              height={96}
+              loading="lazy"
+              className="h-[22px] w-auto"
+            />
+            <motion.img
+              variants={revealFrom('left')}
+              src={withBasePath('/images/karensoft/wordmark-en.png')}
+              alt="KarenSoft"
+              width={410}
+              height={48}
+              loading="lazy"
+              className="h-[10px] w-auto"
+            />
+          </span>
         </span>
-      </span>
+      </motion.span>
     </motion.a>
   );
 }
