@@ -62,11 +62,21 @@ jobs:
         # and capture the log to a file via redirection (NOT a pipe, so the
         # step's own exit code reflects next's real exit status).
         run: |
-          set -euxo pipefail
-          npm run build > build.log 2>&1 || true
-          echo "--- out/ directory contents (if any) ---" >> build.log
-          ls -la out 2>&1 >> build.log || true
-          echo "--- END ---" >> build.log
+          {
+            echo "=== env ==="
+            echo "PWD=$(pwd)"
+            echo "NODE_VERSION=$(node --version)"
+            echo "NPM_VERSION=$(npm --version)"
+            echo "=== ls -la src/hooks src/lib src/components/sections ==="
+            ls -la src/hooks src/lib src/components/sections 2>&1
+            echo "=== cat tsconfig.json paths ==="
+            node -e "console.log(JSON.stringify(require('./tsconfig.json').compilerOptions.paths))"
+            echo "=== running build ==="
+            npm run build 2>&1 || true
+            echo "--- out/ directory contents (if any) ---"
+            ls -la out 2>&1 || true
+            echo "--- END ---"
+          } > build.log 2>&1
         # Don't fail the step here; let the debug step below emit a clean error so
         # the log is uploaded to artifacts.
 
