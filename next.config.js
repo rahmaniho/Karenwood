@@ -35,16 +35,28 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
-  // Tap webpack's resolver to log every attempt to resolve @/* and confirm
-  // whether the tsconfig paths alias is being applied at all. This is purely
-  // diagnostic and gets removed once we identify the root cause of the CI
-  // "Module not found" failures.
+  // Diagnostic: log webpack resolve state, AND defensively add an explicit
+  // @ -> src/ alias to the resolver so that, if the tsconfig.json paths
+  // plugin is somehow not picking up the @ mapping, the build still works.
+  // This is a no-op when the plugin works (the alias is shadowed by the
+  // more-specific plugin) but a safety net when it doesn't.
   webpack: (config, { webpack }) => {
     const origResolve = config.resolve || {};
     const origPlugin = origResolve.plugins || [];
     process.stderr.write(
       `[next.config.js] webpack resolve.plugins count=${origPlugin.length} ` +
-      `alias=${JSON.stringify(origResolve.alias || {})}\n`,
+      `before-alias=${JSON.stringify(origResolve.alias || {})}\n`,
+    );
+    config.resolve = {
+      ...origResolve,
+      alias: {
+        ...(origResolve.alias || {}),
+        '@': require('path').resolve(__dirname, 'src'),
+      },
+    };
+    process.stderr.write(
+      `[next.config.js] webpack resolve.plugins count=${origPlugin.length} ` +
+      `after-alias=${JSON.stringify(config.resolve.alias)}\n`,
     );
     return config;
   },
