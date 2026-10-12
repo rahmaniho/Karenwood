@@ -8,6 +8,12 @@ const basePath = isProd ? `/${repo}` : '';
 
 const nextConfig = {
   output: 'export',
+  // Disable automatic Google Fonts CSS inlining: build environments without
+  // outbound internet (e.g. GitHub Actions build runners behind firewalls,
+  // some sandboxes) would otherwise fail with "Failed to download the
+  // stylesheet" while trying to fetch https://fonts.googleapis.com.
+  // We keep the <link> tag in layout.tsx so the browser fetches fonts at runtime.
+  optimizeFonts: false,
   images: {
     unoptimized: true,
   },
