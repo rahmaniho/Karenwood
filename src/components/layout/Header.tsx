@@ -93,14 +93,18 @@ export function Header() {
             aria-label="KARENWOOD Home"
           >
             <img
-              src={withBasePath(theme === 'dark' ? '/logo-dark.svg' : '/logo.svg')}
+              src={withBasePath(
+                theme === 'dark' ? '/brand/karenwood-lockup-dark.png' : '/brand/karenwood-lockup.png'
+              )}
+              width={851}
+              height={240}
               alt={
                 locale === 'fa'
                   ? 'لوگوی هلدینگ صنایع چوب کارن‌وود'
                   : 'KARENWOOD Luxury Wood Holding Logo'
               }
               className={`w-auto transition-all duration-300 ${
-                scrolled ? 'h-10 sm:h-11' : 'h-11 sm:h-12'
+                scrolled ? 'h-10 sm:h-11' : 'h-11 sm:h-14'
               }`}
             />
           </Link>

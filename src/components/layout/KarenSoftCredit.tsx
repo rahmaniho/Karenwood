@@ -137,13 +137,15 @@ export function KarenSoftCredit() {
 
         <span className="flex items-baseline gap-2">
           <span
-            className={`ks-gradient-text inline-flex text-sm font-extrabold ${
+            className={`inline-flex text-sm font-extrabold ${
               isRTL ? 'gap-1 font-faHeading' : 'tracking-wide'
             }`}
             dir={isRTL ? 'rtl' : 'ltr'}
           >
             {primaryPieces.map((chunk, i) => (
-              <motion.span key={`${chunk}-${i}`} variants={piece} className="inline-block">
+              // Gradient is applied per piece: background-clip:text on a parent does not
+              // paint through children that are transformed/filtered by the animation.
+              <motion.span key={`${chunk}-${i}`} variants={piece} className="ks-gradient-text inline-block">
                 {chunk}
               </motion.span>
             ))}

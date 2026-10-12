@@ -40,9 +40,12 @@ export function Footer() {
           <div className="lg:col-span-7">
             <Link href="/" className="inline-block">
               <img
-                src={withBasePath('/logo-dark.svg')}
-                alt="KARENWOOD Holding"
-                className="h-12 w-auto"
+                src={withBasePath('/brand/karenwood-lockup-dark.png')}
+                alt="KARENWOOD Holding — هلدینگ کارن چوب"
+                width={851}
+                height={240}
+                loading="lazy"
+                className="h-14 w-auto sm:h-16"
               />
             </Link>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-cream/80">

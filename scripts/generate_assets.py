@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# NOTE: Logo, favicon, PWA icon and og-image assets are now generated from the
+# real KARENWOOD artwork by scripts/generate_brand_assets.py — do not run the
+# logo/icon sections of this legacy placeholder generator.
 """
 KARENWOOD Asset Generator
 Generates all bespoke brand SVGs, architectural illustrations, patterns,
