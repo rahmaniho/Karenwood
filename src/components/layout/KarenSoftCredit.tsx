@@ -8,53 +8,85 @@ import { withBasePath } from '@/lib/utils';
 const KARENSOFT_URL = 'https://www.karen-soft.ir';
 const EASE = [0.22, 1, 0.36, 1] as const;
 
+const MARK = '/images/karensoft/mark.png';
+const WORD_FA = '/images/karensoft/wordmark-fa.png';
+const WORD_EN = '/images/karensoft/wordmark-en.png';
+
 /**
- * Animated "Designed & Developed by KarenSoft | کارن سافت" credit.
+ * A light band that sweeps continuously across a wordmark image.
+ * The band is masked by the image itself, so only the letters light up.
+ */
+function TextShine({ src, delay }: { src: string; delay: string }) {
+  const url = `url(${withBasePath(src)})`;
+  return (
+    <span
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 overflow-hidden"
+      style={{
+        WebkitMaskImage: url,
+        maskImage: url,
+        WebkitMaskSize: '100% 100%',
+        maskSize: '100% 100%',
+        WebkitMaskRepeat: 'no-repeat',
+        maskRepeat: 'no-repeat',
+      }}
+    >
+      <span className="ks-text-shine absolute inset-y-0 left-0 w-1/2" style={{ animationDelay: delay }} />
+    </span>
+  );
+}
+
+/**
+ * Animated "Designed & Developed by KarenSoft | کارن سافت" footer credit.
  *
- * Uses the original KarenSoft logo artwork (KS mark + "کارن سافت" + "Karensoft"
- * wordmarks, cut from rahmaniho/karen-soft/public/images/logo.png) on a white
- * card so the brand colours render exactly as designed.
- *
- * Animation:
- *  - rotating blue/cyan gradient border around the card
- *  - KS mark spins in, floats, and emits pixel particles (echoing the logo)
- *  - "کارن سافت" is revealed right→left, "Karensoft" left→right
- *  - a light sweep passes over the card periodically and on hover
- *  - all motion is disabled for users with prefers-reduced-motion
+ * Around the logo : rotating gradient ring, an orbiting glow dot, pulsing
+ *                   ripples, floating mark, pixel particles; full spin on hover.
+ * On the text     : label words rise in with a flowing cream→cyan gradient;
+ *                   wordmarks are revealed (fa: right→left, en: left→right) and
+ *                   then a cyan light sweeps across the letters continuously.
+ * Card            : rotating gradient border + periodic light sweep.
+ * Everything is disabled for prefers-reduced-motion.
  */
 export function KarenSoftCredit() {
   const { t } = useTranslation();
   const reduceMotion = useReducedMotion();
+  const motionOn = !reduceMotion;
 
   const container: Variants = {
     hidden: {},
-    visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.18, delayChildren: 0.15 } },
+    visible: { transition: { staggerChildren: motionOn ? 0.12 : 0, delayChildren: 0.1 } },
   };
 
-  const fadeUp: Variants = reduceMotion
-    ? {}
-    : {
-        hidden: { opacity: 0, y: 10 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
-      };
+  const wordUp: Variants = motionOn
+    ? {
+        hidden: { opacity: 0, y: 12, filter: 'blur(4px)' },
+        visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.55, ease: EASE } },
+      }
+    : {};
 
-  const markIn: Variants = reduceMotion
-    ? {}
-    : {
+  const cardIn: Variants = motionOn
+    ? {
+        hidden: { opacity: 0, scale: 0.92 },
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: EASE } },
+      }
+    : {};
+
+  const markIn: Variants = motionOn
+    ? {
         hidden: { opacity: 0, scale: 0.3, rotate: -180 },
         visible: {
           opacity: 1,
           scale: 1,
           rotate: 0,
-          transition: { type: 'spring', stiffness: 180, damping: 13 },
+          transition: { type: 'spring', stiffness: 170, damping: 13, delay: 0.2 },
         },
-        hover: { scale: 1.1, rotate: -6, transition: { type: 'spring', stiffness: 300, damping: 12 } },
-      };
+        hover: { rotate: 360, scale: 1.08, transition: { duration: 0.8, ease: EASE } },
+      }
+    : {};
 
-  const revealFrom = (side: 'left' | 'right'): Variants =>
-    reduceMotion
-      ? {}
-      : {
+  const revealFrom = (side: 'left' | 'right', delay: number): Variants =>
+    motionOn
+      ? {
           hidden: {
             opacity: 0,
             clipPath: side === 'right' ? 'inset(0 0 0 100%)' : 'inset(0 100% 0 0)',
@@ -62,16 +94,19 @@ export function KarenSoftCredit() {
           visible: {
             opacity: 1,
             clipPath: 'inset(0 0% 0 0%)',
-            transition: { duration: 0.9, ease: EASE },
+            transition: { duration: 0.9, delay, ease: EASE },
           },
-        };
+        }
+      : {};
 
   const pixels = [
-    { x: -20, y: 6, s: 4, d: 0 },
-    { x: -15, y: 12, s: 3, d: 0.5 },
-    { x: -24, y: 14, s: 3, d: 1 },
-    { x: -12, y: 18, s: 2.5, d: 1.5 },
+    { x: -27, y: 4, s: 4, d: 0 },
+    { x: -22, y: 10, s: 3, d: 0.5 },
+    { x: -31, y: 12, s: 3, d: 1 },
+    { x: -19, y: 16, s: 2.5, d: 1.5 },
   ];
+
+  const labelWords = t.footer.designedBy.split(' ');
 
   return (
     <motion.a
@@ -82,81 +117,123 @@ export function KarenSoftCredit() {
       title="کارن سافت | KarenSoft — www.karen-soft.ir"
       initial="hidden"
       whileInView="visible"
-      whileHover={reduceMotion ? undefined : 'hover'}
+      whileHover={motionOn ? 'hover' : undefined}
       viewport={{ once: true, amount: 0.5 }}
       variants={container}
       className="ks-credit group inline-flex flex-col items-center gap-2 sm:flex-row sm:gap-3"
     >
-      <motion.span
-        variants={fadeUp}
-        className="text-[11px] font-medium tracking-wide text-cream/60 transition-colors duration-300 group-hover:text-cream/90"
-      >
-        {t.footer.designedBy}
-      </motion.span>
+      {/* Label: words rise in, then a flowing gradient runs through them */}
+      <span className="inline-flex gap-1 text-xs font-semibold tracking-wide">
+        {labelWords.map((word, i) => (
+          <motion.span
+            key={`${word}-${i}`}
+            variants={wordUp}
+            className="ks-label-gradient inline-block"
+            style={{ animationDelay: `${i * 0.15}s` }}
+          >
+            {word}
+          </motion.span>
+        ))}
+      </span>
 
       {/* Card with rotating gradient border */}
       <motion.span
-        variants={fadeUp}
-        className="relative inline-flex overflow-hidden rounded-2xl p-[1.5px] shadow-[0_0_0_0_rgba(14,165,233,0)] transition-shadow duration-500 group-hover:shadow-[0_0_28px_-4px_rgba(34,211,238,0.55)]"
+        variants={cardIn}
+        className="relative inline-flex overflow-hidden rounded-2xl p-[1.5px] transition-shadow duration-500 group-hover:shadow-[0_0_30px_-4px_rgba(34,211,238,0.6)]"
       >
-        <span aria-hidden="true" className="ks-ring pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[260%] -translate-x-1/2 -translate-y-1/2" />
+        <span
+          aria-hidden="true"
+          className="ks-ring pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[260%] -translate-x-1/2 -translate-y-1/2"
+        />
 
         <span
           dir="ltr"
-          className="relative flex items-center gap-2.5 overflow-hidden rounded-[14px] bg-white px-3 py-1.5"
+          className="relative flex items-center gap-3 overflow-hidden rounded-[14px] bg-white py-2 pl-2.5 pr-3.5"
         >
-          {/* Light sweep */}
+          {/* Card light sweep */}
           <span
             aria-hidden="true"
-            className="ks-shine pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-sky-200/70 to-transparent"
+            className="ks-shine pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-sky-100/80 to-transparent"
           />
 
-          {/* KS mark */}
-          <motion.span variants={markIn} className="relative block h-9 w-9 shrink-0">
-            {!reduceMotion &&
-              pixels.map((p, i) => (
-                <motion.span
-                  key={i}
+          {/* ── Logo with animated surroundings ── */}
+          <span className="relative flex h-14 w-14 shrink-0 items-center justify-center">
+            {motionOn && (
+              <>
+                {/* Pulsing ripples */}
+                <span aria-hidden="true" className="ks-ripple absolute inset-1 rounded-full border border-sky-400/70" />
+                <span
                   aria-hidden="true"
-                  className="absolute rounded-[1px] bg-blue-600"
-                  style={{ width: p.s, height: p.s, left: '50%', top: '50%' }}
-                  initial={{ x: p.x, y: p.y, opacity: 0 }}
-                  animate={{ x: [p.x, p.x - 7, p.x], y: [p.y, p.y + 2, p.y], opacity: [0, 0.85, 0] }}
-                  transition={{ duration: 2.6, repeat: Infinity, delay: p.d, ease: 'easeInOut' }}
+                  className="ks-ripple absolute inset-1 rounded-full border border-blue-500/60"
+                  style={{ animationDelay: '1.2s' }}
                 />
-              ))}
-            <img
-              src={withBasePath('/images/karensoft/mark.png')}
-              alt=""
-              width={256}
-              height={256}
-              loading="lazy"
-              className={`relative h-full w-full object-contain ${reduceMotion ? '' : 'ks-float'}`}
-            />
-          </motion.span>
+              </>
+            )}
 
-          <span aria-hidden="true" className="h-8 w-px bg-gradient-to-b from-transparent via-sky-300 to-transparent" />
+            {/* Rotating gradient ring */}
+            <span aria-hidden="true" className="ks-logo-ring absolute inset-0 rounded-full" />
 
-          {/* Wordmarks from the original logo */}
-          <span className="flex flex-col items-center gap-[3px]">
-            <motion.img
-              variants={revealFrom('right')}
-              src={withBasePath('/images/karensoft/wordmark-fa.png')}
-              alt="کارن سافت"
-              width={383}
-              height={96}
-              loading="lazy"
-              className="h-[22px] w-auto"
-            />
-            <motion.img
-              variants={revealFrom('left')}
-              src={withBasePath('/images/karensoft/wordmark-en.png')}
-              alt="KarenSoft"
-              width={410}
-              height={48}
-              loading="lazy"
-              className="h-[10px] w-auto"
-            />
+            {/* Orbiting glow dot */}
+            {motionOn && (
+              <span aria-hidden="true" className="ks-orbit absolute inset-0">
+                <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400 shadow-[0_0_8px_2px_rgba(34,211,238,0.85)]" />
+              </span>
+            )}
+
+            {/* Soft inner glow */}
+            <span aria-hidden="true" className="absolute inset-[5px] rounded-full bg-gradient-to-br from-sky-50 to-white" />
+
+            {/* KS mark */}
+            <motion.span variants={markIn} className="relative block h-9 w-9">
+              {motionOn &&
+                pixels.map((p, i) => (
+                  <motion.span
+                    key={i}
+                    aria-hidden="true"
+                    className="absolute rounded-[1px] bg-blue-600"
+                    style={{ width: p.s, height: p.s, left: '50%', top: '50%' }}
+                    initial={{ x: p.x, y: p.y, opacity: 0 }}
+                    animate={{ x: [p.x, p.x - 6, p.x], y: [p.y, p.y + 2, p.y], opacity: [0, 0.9, 0] }}
+                    transition={{ duration: 2.6, repeat: Infinity, delay: p.d, ease: 'easeInOut' }}
+                  />
+                ))}
+              <img
+                src={withBasePath(MARK)}
+                alt=""
+                width={256}
+                height={256}
+                loading="lazy"
+                className={`relative h-full w-full object-contain ${motionOn ? 'ks-float' : ''}`}
+              />
+            </motion.span>
+          </span>
+
+          <span aria-hidden="true" className="h-9 w-px bg-gradient-to-b from-transparent via-sky-300 to-transparent" />
+
+          {/* ── Wordmarks: reveal, then continuous light sweep across the letters ── */}
+          <span className="flex flex-col items-center gap-1">
+            <motion.span variants={revealFrom('right', 0.35)} className="relative block">
+              <img
+                src={withBasePath(WORD_FA)}
+                alt="کارن سافت"
+                width={383}
+                height={96}
+                loading="lazy"
+                className="block h-6 w-auto"
+              />
+              {motionOn && <TextShine src={WORD_FA} delay="1.4s" />}
+            </motion.span>
+            <motion.span variants={revealFrom('left', 0.55)} className="relative block">
+              <img
+                src={withBasePath(WORD_EN)}
+                alt="KarenSoft"
+                width={410}
+                height={48}
+                loading="lazy"
+                className="block h-[11px] w-auto"
+              />
+              {motionOn && <TextShine src={WORD_EN} delay="1.9s" />}
+            </motion.span>
           </span>
         </span>
       </motion.span>
