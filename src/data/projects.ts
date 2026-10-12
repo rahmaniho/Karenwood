@@ -65,7 +65,7 @@ export const projects: ProjectItem[] = [
     areaSqm: 68,
     featured: true,
     aspect: 'tall',
-    image: '/images/projects/project-1.svg',
+    image: '/images/projects/project-1.jpg',
     alt: {
       fa: 'آشپزخانه مونولیت گردوی سیاه در پنت‌هاوس زعفرانیه اثر کارن‌وود',
       en: 'Zafaraniyeh Penthouse Monolith Black Walnut Kitchen by Karenwood',
@@ -98,7 +98,7 @@ export const projects: ProjectItem[] = [
     areaSqm: 44,
     featured: true,
     aspect: 'wide',
-    image: '/images/projects/project-2.svg',
+    image: '/images/projects/project-2.jpg',
     alt: {
       fa: 'حمام اسپا و وان چوب هینوکی ژاپنی در ویلای لواسان اثر کارن‌وود',
       en: 'Lavasan Villa Japanese Hinoki Ofuro Spa Bathroom by Karenwood',
@@ -131,7 +131,7 @@ export const projects: ProjectItem[] = [
     areaSqm: 18,
     featured: true,
     aspect: 'tall',
-    image: '/images/projects/project-3.svg',
+    image: '/images/projects/project-3.jpg',
     alt: {
       fa: 'درب ورودی پیوت ۴.۲ متری چوب گردو و برنز در عمارت الهیه',
       en: 'Elahiyeh Residence 4.2m Walnut & Cast Bronze Pivot Entrance Portal',
@@ -164,7 +164,7 @@ export const projects: ProjectItem[] = [
     areaSqm: 140,
     featured: true,
     aspect: 'wide',
-    image: '/images/projects/project-4.svg',
+    image: '/images/projects/project-4.jpg',
     alt: {
       fa: 'دیوارپوش پارامتریک آکوستیک و کتابخانه بلوط سفید در پنت‌هاوس نیاوران',
       en: 'Niavaran Penthouse Parametric Acoustic Oak Wall & Cantilevered Library',
@@ -197,7 +197,7 @@ export const projects: ProjectItem[] = [
     areaSqm: 24,
     featured: true,
     aspect: 'square',
-    image: '/images/projects/project-5.svg',
+    image: '/images/projects/project-5.jpg',
     alt: {
       fa: 'اثر هنری کومیکو ژاپنی و گره‌چینی ایرانی در لابی گالری اصفهان',
       en: 'Isfahan Collectors Gallery Illuminated Kumiko & Gereh Art Installation',
@@ -230,7 +230,7 @@ export const projects: ProjectItem[] = [
     areaSqm: 420,
     featured: true,
     aspect: 'wide',
-    image: '/images/projects/project-6.svg',
+    image: '/images/projects/project-6.jpg',
     alt: {
       fa: 'کفپوش پارکت شورون فرانسوی بلوط دودی با اینلی برنج در رزیدنس فرشته',
       en: 'Fereshteh Residence French Chevron Smoked Oak Parquet with Brass Inlays',
@@ -263,7 +263,7 @@ export const projects: ProjectItem[] = [
     areaSqm: 36,
     featured: false,
     aspect: 'tall',
-    image: '/images/projects/project-7.svg',
+    image: '/images/projects/project-7.jpg',
     alt: {
       fa: 'پله معلق و هندریل چوب خمیده در دوبلکس دروس اثر کارن‌وود',
       en: 'Darrous Duplex Cantilevered Floating Walnut Staircase by Karenwood',
@@ -296,7 +296,7 @@ export const projects: ProjectItem[] = [
     areaSqm: 260,
     featured: false,
     aspect: 'wide',
-    image: '/images/projects/project-8.svg',
+    image: '/images/projects/project-8.jpg',
     alt: {
       fa: 'میز کنفرانس ۹ متری و دفتر مدیریت لوکس برج جردن اثر کارن‌وود',
       en: 'Jordan Flagship Tower 9m Smart Boardroom & C-Suite by Karenwood',
@@ -329,7 +329,7 @@ export const projects: ProjectItem[] = [
     areaSqm: 310,
     featured: false,
     aspect: 'wide',
-    image: '/images/projects/project-9.svg',
+    image: '/images/projects/project-9.jpg',
     alt: {
       fa: 'پرگولا، روف‌گاردن و دکینگ استخر با ترمووود فنلاندی در شمیرانات',
       en: 'Shemiranat Estate Bioclimatic Thermowood Pergola & Pool Decking',
@@ -362,7 +362,7 @@ export const projects: ProjectItem[] = [
     areaSqm: 52,
     featured: false,
     aspect: 'square',
-    image: '/images/projects/project-10.svg',
+    image: '/images/projects/project-10.jpg',
     alt: {
       fa: 'اتاق اختصاصی هومیدور سدر اسپانیایی و میز اسلب یک‌تکه در ولنجک',
       en: 'Velenjak Private Spanish Cedar Walk-In Humidor & Single-Slab Lounge',
@@ -395,7 +395,7 @@ export const projects: ProjectItem[] = [
     areaSqm: 540,
     featured: false,
     aspect: 'tall',
-    image: '/images/projects/project-11.svg',
+    image: '/images/projects/project-11.jpg',
     alt: {
       fa: 'نمای چوبی، تراس معلق و سازه چوب ساج ویلای ساحلی خزر',
       en: 'Caspian Coast Cliffside Villa Teak Facade & Cantilevered Decks',
@@ -428,7 +428,7 @@ export const projects: ProjectItem[] = [
     areaSqm: 85,
     featured: false,
     aspect: 'square',
-    image: '/images/projects/project-12.svg',
+    image: '/images/projects/project-12.jpg',
     alt: {
       fa: 'چای‌خانه و پاویون مراقبه وابی‌سابی با اتصالات بدون میخ در تجریش',
       en: 'Tajrish Private Garden Wabi-Sabi Tea Ceremony Pavilion by Karenwood',

@@ -27,7 +27,7 @@ export const blogArticles: BlogArticle[] = [
   {
     id: 'blog-01',
     slug: 'wabi-sabi-wood-architecture',
-    image: '/images/blog/blog-1.svg',
+    image: '/images/blog/blog-1.jpg',
     alt: {
       fa: 'فلسفه وابی‌سابی در معماری چوب معاصر و مینیمالیسم اسکاندیناوی',
       en: 'The Philosophy of Wabi-Sabi in Contemporary Wood Architecture',
@@ -38,7 +38,7 @@ export const blogArticles: BlogArticle[] = [
     author: {
       name: { fa: 'آوا رستمی', en: 'Ava Rostami' },
       role: { fa: 'مدیر ارشد طراحی داخلی و وابی‌سابی کارن‌وود', en: 'Head of Interior & Wabi-Sabi Design' },
-      avatar: '/images/team/team-2.svg',
+      avatar: '/images/team/team-2.jpg',
     },
     title: {
       fa: 'فلسفه وابی‌سابی در معماری چوب معاصر: زیبایی جاودانه در گره‌ها و بافت زنده',
@@ -94,7 +94,7 @@ export const blogArticles: BlogArticle[] = [
   {
     id: 'blog-02',
     slug: 'selecting-wood-for-luxury-kitchens',
-    image: '/images/blog/blog-2.svg',
+    image: '/images/blog/blog-2.jpg',
     alt: {
       fa: 'راهنمای جامع انتخاب چوب برای آشپزخانه‌های لوکس و مدرن',
       en: 'Definitive Guide to Timber Selection for Luxury Kitchens',
@@ -105,7 +105,7 @@ export const blogArticles: BlogArticle[] = [
     author: {
       name: { fa: 'کوروش رادمهر', en: 'Kourosh Radmehr' },
       role: { fa: 'بنیان‌گذار و معمار ارشد هلدینگ کارن‌وود', en: 'Founder & Principal Architect' },
-      avatar: '/images/team/team-1.svg',
+      avatar: '/images/team/team-1.jpg',
     },
     title: {
       fa: 'راهنمای جامع انتخاب گونه چوب برای آشپزخانه‌های لوکس: گردوی سیاه، بلوط دودی یا زبان‌گنجشک؟',
@@ -163,7 +163,7 @@ export const blogArticles: BlogArticle[] = [
   {
     id: 'blog-03',
     slug: 'waterproof-wood-technology-bathrooms',
-    image: '/images/blog/blog-3.svg',
+    image: '/images/blog/blog-3.jpg',
     alt: {
       fa: 'فناوری آب‌بندی چوب در فضاهای مرطوب، حمام اسپا و وان هینوکی',
       en: 'Hydro-Thermal Wood Engineering for Luxury Bathrooms & Spas',
@@ -174,7 +174,7 @@ export const blogArticles: BlogArticle[] = [
     author: {
       name: { fa: 'ترانه فرزاد', en: 'Taraneh Farzad' },
       role: { fa: 'مدیر مهندسی چوب و پایداری کارن‌وود', en: 'Sustainability & Timber Engineering Lead' },
-      avatar: '/images/team/team-4.svg',
+      avatar: '/images/team/team-4.jpg',
     },
     title: {
       fa: 'فناوری آب‌بندی و فرآوری هیدروترمال چوب در حمام‌های اسپا و فضاهای مرطوب',
@@ -228,7 +228,7 @@ export const blogArticles: BlogArticle[] = [
   {
     id: 'blog-04',
     slug: 'japanese-joinery-modern-interiors',
-    image: '/images/blog/blog-4.svg',
+    image: '/images/blog/blog-4.jpg',
     alt: {
       fa: 'اتصالات سنتی کام و زبانه ژاپنی و کومیکو در دکوراسیون مدرن',
       en: 'Traditional Kumiko & Mortise Joinery in Modern Interiors',
@@ -239,7 +239,7 @@ export const blogArticles: BlogArticle[] = [
     author: {
       name: { fa: 'سهراب موحد', en: 'Sohrab Movahed' },
       role: { fa: 'مدیر استادکاران و اتصالات سنتی کارن‌وود', en: 'Master Artisan & Joinery Director' },
-      avatar: '/images/team/team-3.svg',
+      avatar: '/images/team/team-3.jpg',
     },
     title: {
       fa: 'اتصالات سنتی کام و زبانه ژاپنی و گره‌چینی ایرانی؛ معماری بدون میخ و پیچ',
@@ -293,7 +293,7 @@ export const blogArticles: BlogArticle[] = [
   {
     id: 'blog-05',
     slug: 'sustainable-forestry-aged-walnut',
-    image: '/images/blog/blog-5.svg',
+    image: '/images/blog/blog-5.jpg',
     alt: {
       fa: 'جنگل‌داری پایدار، خشک‌کن خلاء و هنر عمل‌آوری گردوی کهنسال در کارن‌وود',
       en: 'Sustainable Forestry and the Art of Kiln-Seasoning Aged Walnut',
@@ -304,7 +304,7 @@ export const blogArticles: BlogArticle[] = [
     author: {
       name: { fa: 'ترانه فرزاد', en: 'Taraneh Farzad' },
       role: { fa: 'مدیر مهندسی چوب و پایداری کارن‌وود', en: 'Sustainability & Timber Engineering Lead' },
-      avatar: '/images/team/team-4.svg',
+      avatar: '/images/team/team-4.jpg',
     },
     title: {
       fa: 'جنگل‌داری پایدار و هنر عمل‌آوری الوارهای گردوی کهنسال در خزانه کارن‌وود',
@@ -358,7 +358,7 @@ export const blogArticles: BlogArticle[] = [
   {
     id: 'blog-06',
     slug: 'acoustic-wooden-panels-biophilic-design',
-    image: '/images/blog/blog-6.svg',
+    image: '/images/blog/blog-6.jpg',
     alt: {
       fa: 'طراحی بیوفیلیک و مهندسی آکوستیک با پنل‌ها و لوورهای چوبی کارن‌وود',
       en: 'Biophilic Architecture & Acoustic Engineering with Timber Panels',
@@ -369,7 +369,7 @@ export const blogArticles: BlogArticle[] = [
     author: {
       name: { fa: 'کوروش رادمهر', en: 'Kourosh Radmehr' },
       role: { fa: 'بنیان‌گذار و معمار ارشد هلدینگ کارن‌وود', en: 'Founder & Principal Architect' },
-      avatar: '/images/team/team-1.svg',
+      avatar: '/images/team/team-1.jpg',
     },
     title: {
       fa: 'طراحی بیوفیلیک و مهندسی سکوت: چگونه پنل‌های چوبی کیفیت زیست و تمرکز را دگرگون می‌کنند',

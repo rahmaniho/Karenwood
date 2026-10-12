@@ -72,7 +72,7 @@ export default function ProjectsPage() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `url(${withBasePath('/images/patterns/kumiko.svg')})`,
+            backgroundImage: `url(${withBasePath('/images/patterns/kumiko.jpg')})`,
             backgroundSize: '200px 200px',
           }}
         />

@@ -57,7 +57,7 @@ const timeline = [
 
 const teamMembers = [
   {
-    avatar: '/images/team/team-1.svg',
+    avatar: '/images/team/team-1.jpg',
     name: { fa: 'مهندس کوروش رادمهر', en: 'Kourosh Radmehr' },
     role: { fa: 'بنیان‌گذار و معمار ارشد هلدینگ', en: 'Founder & Principal Architect' },
     bio: {
@@ -66,7 +66,7 @@ const teamMembers = [
     },
   },
   {
-    avatar: '/images/team/team-2.svg',
+    avatar: '/images/team/team-2.jpg',
     name: { fa: 'آوا رستمی', en: 'Ava Rostami' },
     role: { fa: 'مدیر ارشد طراحی داخلی و وابی‌سابی', en: 'Head of Interior & Wabi-Sabi Design' },
     bio: {
@@ -75,7 +75,7 @@ const teamMembers = [
     },
   },
   {
-    avatar: '/images/team/team-3.svg',
+    avatar: '/images/team/team-3.jpg',
     name: { fa: 'استاد سهراب موحد', en: 'Master Sohrab Movahed' },
     role: { fa: 'مدیر استادکاران و اتصالات سنتی', en: 'Master Artisan & Joinery Director' },
     bio: {
@@ -84,7 +84,7 @@ const teamMembers = [
     },
   },
   {
-    avatar: '/images/team/team-4.svg',
+    avatar: '/images/team/team-4.jpg',
     name: { fa: 'دکتر ترانه فرزاد', en: 'Dr. Taraneh Farzad' },
     role: { fa: 'مدیر مهندسی چوب، نانوفناوری و پایداری', en: 'Timber Science & Sustainability Lead' },
     bio: {
@@ -140,7 +140,7 @@ export default function AboutPage() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `url(${withBasePath('/images/patterns/wood-grain.svg')})`,
+            backgroundImage: `url(${withBasePath('/images/patterns/wood-grain.jpg')})`,
             backgroundSize: '360px 360px',
           }}
         />
@@ -332,7 +332,7 @@ export default function AboutPage() {
             </div>
             <div className="lg:col-span-5">
               <img
-                src={withBasePath('/images/subsidiaries/custom.svg')}
+                src={withBasePath('/images/subsidiaries/custom.jpg')}
                 alt="Karenwood Master Workshop"
                 className="w-full rounded-2xl border border-bronze/30 object-cover"
               />

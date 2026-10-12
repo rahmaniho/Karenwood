@@ -55,7 +55,7 @@ export const subsidiaries: Subsidiary[] = [
     slug: 'kitchen',
     code: 'KW-01',
     route: '/kitchen',
-    image: '/images/subsidiaries/kitchen.svg',
+    image: '/images/subsidiaries/kitchen.jpg',
     alt: {
       fa: 'آتلیه آشپزخانه چوبی لوکس کارن‌وود با جزیره مونولیت گردو',
       en: 'Karenwood Luxury Wooden Kitchen Atelier with Monolith Walnut Island',
@@ -186,7 +186,7 @@ export const subsidiaries: Subsidiary[] = [
     slug: 'bathroom',
     code: 'KW-02',
     route: '/bathroom',
-    image: '/images/subsidiaries/bathroom.svg',
+    image: '/images/subsidiaries/bathroom.jpg',
     alt: {
       fa: 'حمام و سرویس بهداشتی چوبی ضدآب کارن‌وود با وان هینوکی ژاپنی',
       en: 'Karenwood Waterproof Spa Bathroom & Japanese Hinoki Ofuro Tub',
@@ -317,7 +317,7 @@ export const subsidiaries: Subsidiary[] = [
     slug: 'doors',
     code: 'KW-03',
     route: '/doors',
-    image: '/images/subsidiaries/doors.svg',
+    image: '/images/subsidiaries/doors.jpg',
     alt: {
       fa: 'درب چوبی پیوت و ورودی لابی تمام‌چوب کارن‌وود',
       en: 'Karenwood Monumental Pivot Entrance Door & Flush Interior Timber Doors',
@@ -448,7 +448,7 @@ export const subsidiaries: Subsidiary[] = [
     slug: 'decor',
     code: 'KW-04',
     route: '/decor',
-    image: '/images/subsidiaries/decor.svg',
+    image: '/images/subsidiaries/decor.jpg',
     alt: {
       fa: 'دکوراسیون داخلی چوبی، دیوارپوش آکوستیک و کتابخانه‌های کارن‌وود',
       en: 'Karenwood Interior Wooden Decoration, Parametric Acoustic Walls & Bespoke Shelving',
@@ -579,7 +579,7 @@ export const subsidiaries: Subsidiary[] = [
     slug: 'handicrafts',
     code: 'KW-05',
     route: '/handicrafts',
-    image: '/images/subsidiaries/handicrafts.svg',
+    image: '/images/subsidiaries/handicrafts.jpg',
     alt: {
       fa: 'صنایع دستی چوبی لوکس، گره‌چینی، کومیکو و ظروف هنری کارن‌وود',
       en: 'Karenwood Handcrafted Wooden Art, Kumiko Panels & Sculptural Vessels',
@@ -710,7 +710,7 @@ export const subsidiaries: Subsidiary[] = [
     slug: 'flooring',
     code: 'KW-06',
     route: '/flooring',
-    image: '/images/subsidiaries/flooring.svg',
+    image: '/images/subsidiaries/flooring.jpg',
     alt: {
       fa: 'کفپوش چوبی، پارکت شورون، جناغی و ورسای کارن‌وود',
       en: 'Karenwood Luxury Chevron, Herringbone & Versailles Hardwood Parquet Flooring',
@@ -841,7 +841,7 @@ export const subsidiaries: Subsidiary[] = [
     slug: 'stairs',
     code: 'KW-07',
     route: '/stairs',
-    image: '/images/subsidiaries/stairs.svg',
+    image: '/images/subsidiaries/stairs.jpg',
     alt: {
       fa: 'پله چوبی معلق، پله گرد حلزونی و کف‌پله تمام‌چوب کارن‌وود',
       en: 'Karenwood Cantilevered Floating Timber Stairs & Helical Sculptural Staircases',
@@ -972,7 +972,7 @@ export const subsidiaries: Subsidiary[] = [
     slug: 'office',
     code: 'KW-08',
     route: '/office',
-    image: '/images/subsidiaries/office.svg',
+    image: '/images/subsidiaries/office.jpg',
     alt: {
       fa: 'مبلمان اداری لوکس، میز مدیریتی تمام‌چوب و اتاق کنفرانس کارن‌وود',
       en: 'Karenwood Executive Office Furniture, Boardroom Tables & Acoustic Partitions',
@@ -1103,7 +1103,7 @@ export const subsidiaries: Subsidiary[] = [
     slug: 'outdoor',
     code: 'KW-09',
     route: '/outdoor',
-    image: '/images/subsidiaries/outdoor.svg',
+    image: '/images/subsidiaries/outdoor.jpg',
     alt: {
       fa: 'سازه‌های چوبی فضای باز، آلاچیق، پرگولا، روف‌گاردن و نمای ترمووود کارن‌وود',
       en: 'Karenwood Outdoor Wooden Structures, Biophilic Pergolas, Roof Gardens & Thermowood Facades',
@@ -1234,7 +1234,7 @@ export const subsidiaries: Subsidiary[] = [
     slug: 'custom',
     code: 'KW-10',
     route: '/custom',
-    image: '/images/subsidiaries/custom.svg',
+    image: '/images/subsidiaries/custom.jpg',
     alt: {
       fa: 'سفارشات خاص و دست‌ساز چوبی (Bespoke) در آتلیه اختصاصی کارن‌وود',
       en: 'Karenwood Bespoke Wooden Commissions, Live-Edge Monoliths & Custom Architectural Joinery',

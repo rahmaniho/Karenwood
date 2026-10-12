@@ -7,9 +7,9 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { withBasePath } from '@/lib/utils';
 
 const avatars = [
-  '/images/team/team-1.svg',
-  '/images/team/team-2.svg',
-  '/images/team/team-3.svg',
+  '/images/team/team-1.jpg',
+  '/images/team/team-2.jpg',
+  '/images/team/team-3.jpg',
 ];
 
 export function TestimonialsSection() {

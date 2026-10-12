@@ -29,7 +29,7 @@ export function CtaSection() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 opacity-25"
             style={{
-              backgroundImage: `url(${withBasePath('/images/patterns/kumiko.svg')})`,
+              backgroundImage: `url(${withBasePath('/images/patterns/kumiko.jpg')})`,
               backgroundSize: '200px 200px',
             }}
           />
