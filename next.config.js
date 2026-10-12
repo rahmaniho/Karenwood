@@ -6,6 +6,18 @@ const repo = process.env.GITHUB_REPOSITORY
 const isProd = process.env.NODE_ENV === 'production';
 const basePath = isProd ? `/${repo}` : '';
 
+// Debug marker so we can tell from CI logs whether this file is even being
+// read. Next.js prints stderr from next.config.js during load.
+process.stderr.write(
+  `[next.config.js] loaded. NODE_ENV=${process.env.NODE_ENV || 'unset'} ` +
+  `GITHUB_REPOSITORY=${process.env.GITHUB_REPOSITORY || 'unset'} ` +
+  `repo=${repo} basePath=${basePath}\n`,
+);
+const tsconfigPaths = require('fs').existsSync('tsconfig.json')
+  ? require('./tsconfig.json').compilerOptions?.paths
+  : null;
+process.stderr.write(`[next.config.js] tsconfig paths=${JSON.stringify(tsconfigPaths)}\n`);
+
 const nextConfig = {
   output: 'export',
   // Disable automatic Google Fonts CSS inlining: build environments without
@@ -22,6 +34,19 @@ const nextConfig = {
   trailingSlash: true,
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
+  },
+  // Tap webpack's resolver to log every attempt to resolve @/* and confirm
+  // whether the tsconfig paths alias is being applied at all. This is purely
+  // diagnostic and gets removed once we identify the root cause of the CI
+  // "Module not found" failures.
+  webpack: (config, { webpack }) => {
+    const origResolve = config.resolve || {};
+    const origPlugin = origResolve.plugins || [];
+    process.stderr.write(
+      `[next.config.js] webpack resolve.plugins count=${origPlugin.length} ` +
+      `alias=${JSON.stringify(origResolve.alias || {})}\n`,
+    );
+    return config;
   },
 };
 
