@@ -6,6 +6,7 @@ import { MapPin, Phone, Mail, Clock, CheckCircle2, ArrowUpRight, ArrowUpLeft } f
 import { useTranslation } from '@/hooks/useTranslation';
 import { subsidiaries } from '@/data/subsidiaries';
 import { withBasePath } from '@/lib/utils';
+import { KarenSoftCredit } from '@/components/layout/KarenSoftCredit';
 
 export function Footer() {
   const { locale, t, localize, isRTL } = useTranslation();
@@ -39,9 +40,12 @@ export function Footer() {
           <div className="lg:col-span-7">
             <Link href="/" className="inline-block">
               <img
-                src={withBasePath('/logo-dark.svg')}
-                alt="KARENWOOD Holding"
-                className="h-12 w-auto"
+                src={withBasePath('/brand/karenwood-lockup-dark.png')}
+                alt="KARENWOOD Holding — هلدینگ کارن چوب"
+                width={851}
+                height={240}
+                loading="lazy"
+                className="h-14 w-auto sm:h-16"
               />
             </Link>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-cream/80">
@@ -195,8 +199,9 @@ export function Footer() {
         </div>
 
         {/* Bottom Legal Bar */}
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-cream/12 pt-8 text-xs text-cream/65 sm:flex-row">
-          <p>{t.footer.copyright}</p>
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-cream/12 pt-8 text-xs text-cream/65 lg:flex-row">
+          <p className="text-center lg:text-start">{t.footer.copyright}</p>
+          <KarenSoftCredit />
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-bronze transition-colors">
               {t.footer.privacy}
