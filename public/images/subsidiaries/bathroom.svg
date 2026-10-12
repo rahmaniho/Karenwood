@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" fill="none" role="img" aria-label="Bathroom & Spa Woodwork — حمام و سرویس چوبی کارن‌وود">
+  <rect width="640" height="440" rx="20" fill="#F5F1EA"/>
+  <rect x="20" y="20" width="600" height="400" rx="14" fill="#1A1A1A"/>
+  <!-- Japanese Hinoki Slatted Backdrop -->
+  <g stroke="#3B2A1E" stroke-width="8">
+    <line x1="70" y1="40" x2="70" y2="380"/><line x1="95" y1="40" x2="95" y2="380"/>
+    <line x1="120" y1="40" x2="120" y2="380"/><line x1="145" y1="40" x2="145" y2="380"/>
+    <line x1="170" y1="40" x2="170" y2="380"/><line x1="195" y1="40" x2="195" y2="380"/>
+  </g>
+  <!-- Circular Halo Illuminated Mirror -->
+  <circle cx="240" cy="165" r="78" fill="#3B2A1E" stroke="#C8A165" stroke-width="4"/>
+  <circle cx="240" cy="165" r="66" stroke="#F5F1EA" stroke-width="1" stroke-opacity="0.4"/>
+  <!-- Floating Live-Edge Walnut Vanity -->
+  <rect x="110" y="270" width="260" height="58" rx="8" fill="#3B2A1E" stroke="#C8A165" stroke-width="2"/>
+  <path d="M120 298 H360" stroke="#C8A165" stroke-width="1.2" stroke-opacity="0.6"/>
+  <!-- Carved Wooden Vessel Sink -->
+  <path d="M200 270 C200 244, 280 244, 280 270 Z" fill="#C8A165"/>
+  <!-- Hinoki Ofuro Soaking Tub -->
+  <path d="M400 265 H575 L558 375 H417 Z" fill="#3B2A1E" stroke="#C8A165" stroke-width="2.2"/>
+  <line x1="408" y1="298" x2="567" y2="298" stroke="#C8A165" stroke-width="2"/>
+  <line x1="412" y1="335" x2="563" y2="335" stroke="#C8A165" stroke-width="2"/>
+  <!-- Botanical Zen Branch -->
+  <path d="M490 210 Q515 165 555 150" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round"/>
+  <ellipse cx="520" cy="175" rx="12" ry="6" transform="rotate(-25 520 175)" fill="#7A8B6F"/>
+  <ellipse cx="545" cy="158" rx="12" ry="6" transform="rotate(-15 545 158)" fill="#7A8B6F"/>
+</svg>

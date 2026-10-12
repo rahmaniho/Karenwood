@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" fill="none" role="img" aria-label="Biophilic Design & Acoustic Timber Architecture">
+  <rect width="800" height="480" fill="#1A1A1A"/>
+  <rect x="28" y="28" width="744" height="424" rx="14" stroke="#C8A165" stroke-opacity="0.4" stroke-width="1.5"/>
+  <!-- Editorial Geometric Composition -->
+  <circle cx="470" cy="240" r="145" fill="#3B2A1E" fill-opacity="0.35" stroke="#C8A165" stroke-width="2"/>
+  <circle cx="470" cy="240" r="98" stroke="#F5F1EA" stroke-opacity="0.4" stroke-width="1.2" stroke-dasharray="8 6"/>
+  <path d="M80 250 C240 240, 520 318, 720 290" stroke="#C8A165" stroke-width="3" fill="none"/>
+  <path d="M80 285 C240 275, 520 353, 720 325" stroke="#F5F1EA" stroke-opacity="0.45" stroke-width="1.5" fill="none"/>
+  <rect x="340" y="110" width="180" height="260" rx="8" fill="#1A1A1A" fill-opacity="0.6" stroke="#C8A165" stroke-width="1.8"/>
+  <line x1="370" y1="150" x2="490" y2="150" stroke="#C8A165" stroke-width="3"/>
+  <line x1="370" y1="185" x2="460" y2="185" stroke="#F5F1EA" stroke-opacity="0.6" stroke-width="2"/>
+  <circle cx="110" cy="95" r="24" fill="#C8A165"/>
+  <text x="695" y="420" text-anchor="end" font-family="'Playfair Display', Georgia, serif" font-size="20" fill="#F5F1EA" opacity="0.7">JOURNAL 06</text>
+</svg>

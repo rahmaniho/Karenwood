@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "title": "KARENWOOD | Luxury Wood Industry Holding & Architectural Atelier",
+    "description": "KARENWOOD is an award-winning luxury wood industry holding featuring 10 specialized ateliers across bespoke kitchens, spa bathrooms, pivot doors, interior decor, parquet flooring, cantilevered stairs, executive offices, and outdoor timber structures."
+  },
+  "nav": {
+    "home": "Home",
+    "subsidiaries": "Subsidiaries",
+    "projects": "Portfolio",
+    "about": "The Holding",
+    "blog": "Journal",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "requestConsultation": "Private Consultation",
+    "exploreAllSubsidiaries": "Explore All 10 Specialized Ateliers",
+    "holdingTagline": "Architectural Woodwork Holding"
+  },
+  "hero": {
+    "badge": "LUXURY WOOD INDUSTRY HOLDING • EST. 1998",
+    "titleLine1": "Where Ancient Timber Meets",
+    "titleLine2": "Architectural Permanence.",
+    "subtitle": "Synthesizing Scandinavian minimalism, Japanese wabi-sabi philosophy, and European precision engineering across ten specialized woodworking ateliers — from monolithic walnut kitchens and Hinoki spa sanctuaries to monumental pivot doors.",
+    "ctaPrimary": "Explore Signature Commissions",
+    "ctaSecondary": "Consult Our Master Architects",
+    "scrollLabel": "Enter the Atelier",
+    "woodSpeciesLabel": "Curated Timber Library:",
+    "species": [
+      { "name": "American Black Walnut", "origin": "North America", "tone": "#3B2A1E" },
+      { "name": "Smoked European Oak", "origin": "Northern Europe", "tone": "#7C563C" },
+      { "name": "Japanese Hinoki Cypress", "origin": "Kiso Valley, Japan", "tone": "#C8A165" },
+      { "name": "Burmese Marine Teak", "origin": "Southeast Asia", "tone": "#9A7155" }
+    ]
+  },
+  "intro": {
+    "eyebrow": "THE KARENWOOD MANIFESTO",
+    "title": "Ten Specialized Ateliers. One Uncompromising Standard of Craft.",
+    "lead": "At Karenwood, timber is never merely a surface material; it is a living chronicle of decades in the forest, elevated by master joiners and 5-axis CNC robotics into enduring architectural heritage.",
+    "body": "We control the entire value chain of luxury woodwork: from selecting FSC-certified heritage logs and computer-monitored vacuum kiln seasoning, to traditional nail-free mortise-and-tenon joinery and zero-VOC botanical oil finishes.",
+    "pillars": [
+      {
+        "title": "Scandinavian Minimalism",
+        "desc": "Pure architectural silhouettes, tactile honesty, and effortless spatial harmony."
+      },
+      {
+        "title": "Japanese Wabi-Sabi Soul",
+        "desc": "Reverence for organic grain, natural knots, and noble patina that deepens over decades."
+      },
+      {
+        "title": "Generational Engineering",
+        "desc": "Hydro-thermal stabilization and precision engineering backed by a 25-year written warranty."
+      }
+    ]
+  },
+  "subsidiariesSection": {
+    "eyebrow": "THE KARENWOOD ECOSYSTEM",
+    "title": "10 Specialized Holding Subsidiaries",
+    "subtitle": "Each Karenwood division operates as a dedicated architectural atelier with its own engineering team, timber inventory, and master craftsmen.",
+    "exploreBtn": "Enter Specialized Atelier",
+    "projectsCountSuffix": "Commissions"
+  },
+  "stats": {
+    "eyebrow": "HERITAGE IN NUMBERS",
+    "title": "Precision Measured Across Decades",
+    "items": [
+      { "value": 28, "suffix": "+", "label": "Years of Continuous Mastery", "detail": "From boutique joinery to 10-division holding" },
+      { "value": 1480, "suffix": "+", "label": "Bespoke Luxury Commissions", "detail": "Penthouses, private villas & diplomatic suites" },
+      { "value": 42000, "suffix": " m²", "label": "Master Workshops & Campus", "detail": "Equipped with German & Italian 5-axis robotics" },
+      { "value": 99, "suffix": ".4%", "label": "Architect & Client Satisfaction", "detail": "On-schedule white-glove delivery & 25-year warranty" }
+    ]
+  },
+  "featuredProjects": {
+    "eyebrow": "CURATED ARCHIVE",
+    "title": "Signature Architectural Commissions",
+    "subtitle": "Discover residential sanctuaries, private estates, and executive landmarks crafted by Karenwood's specialized ateliers.",
+    "viewAll": "View Full Architectural Portfolio",
+    "viewDetails": "Inspect Project Dossier",
+    "filterAll": "All Works"
+  },
+  "process": {
+    "eyebrow": "ATELIER METHODOLOGY",
+    "title": "The 5-Stage Creation Process: From Forest to Estate",
+    "subtitle": "Uniting timber science with hand-planed artisan joinery across five transparent milestones.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Timber Selection & Vacuum Kiln Seasoning",
+        "desc": "Hand-selecting heritage Walnut, Oak, Teak, and Hinoki logs from sustainable forests and stabilizing moisture to exactly 8% in vacuum kilns."
+      },
+      {
+        "number": "02",
+        "title": "3D LiDAR Scanning & BIM Grain Mapping",
+        "desc": "Sub-millimeter laser site surveying and full 3D grain-matched digital twins before a single saw blade touches the timber."
+      },
+      {
+        "number": "03",
+        "title": "5-Axis CNC Precision & Kumiko Hand-Joinery",
+        "desc": "Pairing micron-level German CNC milling with traditional Japanese mortise-and-tenon and butterfly joinery without visible fasteners."
+      },
+      {
+        "number": "04",
+        "title": "Silk Hand-Sanding & Botanical Nano-Oils",
+        "desc": "Multi-stage artisan sanding followed by deep saturation with cold-pressed linseed oil, beeswax, and hydrophobic nano-resins."
+      },
+      {
+        "number": "05",
+        "title": "White-Glove Installation & Heritage Certificate",
+        "desc": "Dust-free acoustic installation by our in-house master fitters, accompanied by a numbered Timber Provenance Certificate and 25-year warranty."
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "ARCHITECT & PATRON VOICES",
+    "title": "Trusted by Visionary Architects & Private Patrons",
+    "items": [
+      {
+        "quote": "For the Zafaraniyeh Penthouse, achieving seamless grain continuity across the monolithic black walnut kitchen, the 4-meter pivot entrance door, and the chevron parquet floor was only possible through Karenwood's integrated holding ateliers. Their finish rivals Milan's finest houses.",
+        "author": "Dr. Farhad Majidinia",
+        "role": "Principal Architect, Form & Space Studio",
+        "project": "Zafaraniyeh Penthouse — Kitchen, Doors & Parquet"
+      },
+      {
+        "quote": "The Hinoki cypress soaking tub and spa vanity Karenwood crafted for our Lavasan villa still release their calming natural cedar aroma four years later. Their waterproof hydro-thermal engineering is extraordinary.",
+        "author": "Eng. Roxana Pashaei",
+        "role": "Private Patron & Art Collector",
+        "project": "Lavasan Sanctuary Villa — Spa Bathroom & Pergola"
+      },
+      {
+        "quote": "Our cantilevered helical staircase and parametric acoustic boardroom walls have become the architectural centerpiece of our headquarters. Invisible joinery and punctual delivery make Karenwood our premier partner.",
+        "author": "Eng. Saman Dolatshahi",
+        "role": "CEO, Alborz Investment Group",
+        "project": "Jordan Flagship Tower — Executive Office & Staircase"
+      }
+    ]
+  },
+  "blogSection": {
+    "eyebrow": "ARCHITECTURAL TIMBER JOURNAL",
+    "title": "Latest Essays & Material Research",
+    "subtitle": "In-depth monographs on wabi-sabi aesthetics, hydro-thermal wood science, and contemporary interior architecture.",
+    "viewAll": "Explore Complete Journal",
+    "readMore": "Read Monograph",
+    "readingTime": "min read"
+  },
+  "ctaSection": {
+    "eyebrow": "BEGIN A BESPOKE COMMISSION",
+    "title": "Bring Your Architectural Vision to Life with Karenwood Master Artisans.",
+    "subtitle": "Whether you are blueprinting a private estate or commissioning a one-of-one sculptural dining monolith, our senior architects welcome you at our Fereshteh Flagship Atelier.",
+    "primaryBtn": "Schedule Private Atelier Consultation",
+    "secondaryBtn": "Commission Bespoke Order",
+    "phoneLabel": "Direct Concierge Line:"
+  },
+  "footer": {
+    "description": "KARENWOOD Luxury Wood Industry Holding — pioneering the synthesis of Scandinavian minimalism, Japanese wabi-sabi craft, and modern timber engineering.",
+    "subsidiariesTitle": "Specialized Ateliers",
+    "quickLinksTitle": "Navigation",
+    "contactTitle": "Flagship Atelier & Showroom",
+    "address": "No. 142, Fereshteh Ave., Elahiyeh, Tehran — Karenwood House",
+    "factoryAddress": "Jajrud Industrial Campus, 42,000 m² Master Production Park",
+    "phone": "+98 (21) 2204-8900",
+    "email": "atelier@karenwood.com",
+    "hours": "Sat – Thu: 09:00 – 20:00 (Private Appointments Available)",
+    "newsletterTitle": "Architects' Private Dispatch",
+    "newsletterPlaceholder": "Enter your professional email...",
+    "newsletterBtn": "Subscribe",
+    "newsletterSuccess": "Thank you. You are now subscribed to the Karenwood Architectural Dispatch.",
+    "copyright": "© 2026 KARENWOOD Holding. All rights reserved. Crafted with architectural precision.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Commission",
+    "faq": "FAQ"
+  }
+}

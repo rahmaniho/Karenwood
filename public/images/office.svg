@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" fill="none" role="img" aria-label="Executive Wooden Office Furniture — مبلمان و دکوراسیون اداری کارن‌وود">
+  <rect width="640" height="440" rx="20" fill="#F5F1EA"/>
+  <rect x="20" y="20" width="600" height="400" rx="14" fill="#1A1A1A"/>
+  <!-- Bookcase & Acoustic Partition Backdrop -->
+  <rect x="75" y="55" width="490" height="175" rx="6" fill="#3B2A1E" stroke="#C8A165" stroke-width="1.8"/>
+  <line x1="238" y1="55" x2="238" y2="230" stroke="#C8A165" stroke-width="1.5"/>
+  <line x1="401" y1="55" x2="401" y2="230" stroke="#C8A165" stroke-width="1.5"/>
+  <line x1="75" y1="142" x2="565" y2="142" stroke="#C8A165" stroke-width="1.5"/>
+  <!-- Sculptural Executive Cantilevered Desk -->
+  <path d="M115 275 H525 L545 295 H95 Z" fill="#C8A165"/>
+  <rect x="130" y="295" width="110" height="85" rx="4" fill="#3B2A1E" stroke="#C8A165" stroke-width="1.8"/>
+  <path d="M485 295 L515 380 H465 L445 295 Z" fill="#C8A165"/>
+  <!-- Minimalist Architectural Desk Lamp & Monitor Silhouette -->
+  <rect x="285" y="205" width="90" height="55" rx="4" fill="#1A1A1A" stroke="#F5F1EA" stroke-width="2"/>
+  <line x1="330" y1="260" x2="330" y2="275" stroke="#C8A165" stroke-width="4"/>
+  <path d="M450 275 V215 L415 230" stroke="#7A8B6F" stroke-width="3" stroke-linecap="round" fill="none"/>
+</svg>
