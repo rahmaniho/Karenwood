@@ -72,7 +72,7 @@ jobs:
             echo "=== cat tsconfig.json paths ==="
             node -e "console.log(JSON.stringify(require('./tsconfig.json').compilerOptions.paths))"
             echo "=== running build ==="
-            npm run build 2>&1 || true
+            npx next build --debug 2>&1 || true
             echo "--- out/ directory contents (if any) ---"
             ls -la out 2>&1 || true
             echo "--- END ---"
